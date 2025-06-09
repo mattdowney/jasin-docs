@@ -1,180 +1,206 @@
 ---
 title: 'Embed Cards'
-description: 'Generate beautiful, embeddable product cards from Amazon URLs'
+description: 'Create beautiful, embeddable Amazon product cards for your website'
 ---
 
 ## Overview
 
-Jasin transforms Amazon product URLs into clean, customizable product cards that can be embedded on any website. Unlike iframes, our cards are static HTML that loads fast and integrates seamlessly with your site.
+Jasin transforms Amazon product URLs into clean, beautiful product cards that you can embed on any website. Simply paste an Amazon link, customize the appearance, and get a script tag to embed anywhere.
 
 ## Creating Embed Cards
 
-### Via Dashboard
+### Using the Dashboard
 
-1. **Paste Amazon URL**: Copy any Amazon product URL
-2. **Choose Theme**: Select light, dark, or auto theme
-3. **Customize Settings**: Configure affiliate tags and display options
-4. **Generate Card**: Get your embed code instantly
+1. **Sign in** to your Jasin dashboard at [getjasin.com](https://getjasin.com)
+2. **Paste Amazon URL** - Copy any Amazon product URL into the input field
+3. **Preview your card** - See exactly how it will look on your website
+4. **Choose theme** - Select light, dark, or auto theme
+5. **Create embed** - Click "Create Embed" to generate your script tag
+6. **Copy and paste** - Use the script tag anywhere you want the product card to appear
 
-### Via API
+### What You Get
 
-<CodeGroup>
-```bash cURL
-curl -X POST https://jasin.app/api/embeds \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "amazon_url": "https://www.amazon.com/dp/B08N5WRWNW",
-    "theme": "light",
-    "affiliate_tag": "your-tag-20"
-  }'
-```
+Each embed generates a simple script tag like this:
 
-```javascript JavaScript
-const embed = await fetch('https://jasin.app/api/embeds', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer YOUR_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    amazon_url: 'https://www.amazon.com/dp/B08N5WRWNW',
-    theme: 'light',
-    affiliate_tag: 'your-tag-20'
-  })
-});
-```
-</CodeGroup>
-
-## Embed Code Structure
-
-Each embed card consists of two parts:
-
-### 1. HTML Container
 ```html
-<div id="jasin-embed-abc123" class="jasin-embed" data-theme="light">
-  <!-- Product card content -->
-  <div class="jasin-card">
-    <img src="product-image.jpg" alt="Product Name" />
-    <div class="jasin-details">
-      <h3>Product Title</h3>
-      <div class="jasin-price">$29.99</div>
-      <a href="amazon-link" class="jasin-button">View on Amazon</a>
-    </div>
-  </div>
-</div>
+<script 
+  async 
+  src="https://getjasin.com/embed.js" 
+  data-id="your-embed-id"
+  data-theme="light">
+</script>
 ```
 
-### 2. Tracking Script
-```html
-<script src="https://jasin.app/embed.js"></script>
-```
-
-<Warning>
-  Always include the tracking script to enable analytics and ensure proper functionality.
-</Warning>
-
-## Card Features
+## Embed Features
 
 ### Product Information
-- **Real-time Data**: Fetched via Amazon PAAPI 5.0
-- **Product Images**: High-quality images with carousel support
-- **Pricing**: Current price with availability status
-- **Ratings**: Star ratings and review counts
-- **Prime Badge**: Prime shipping indicator
+Your embedded cards automatically include:
+- **High-quality product images** from Amazon
+- **Product title** and key details
+- **Current price** and availability
+- **Star ratings** and review counts
+- **Prime badge** when applicable
+- **"View on Amazon" button** with tracking
 
-### Customization Options
-- **Themes**: Light, dark, and auto (system preference)
-- **Colors**: Dynamic color extraction from product images
-- **Affiliate Tags**: Custom affiliate tags for Pro users
-- **Display Options**: Show/hide ratings, Prime badge, etc.
+### Responsive Design
+- **Mobile-first** - Looks great on all devices
+- **Flexible sizing** - Adapts to your website's layout
+- **Fast loading** - Optimized for performance
+- **SEO-friendly** - Includes structured data
 
-## Theme System
+## Theme Options
 
 <Tabs>
   <Tab title="Light Theme">
     Clean, minimal design with light backgrounds perfect for most websites.
     
-    ```css
-    .jasin-embed[data-theme="light"] {
-      background: #ffffff;
-      color: #1a1a1a;
-      border: 1px solid #e5e5e5;
-    }
-    ```
+    - White background
+    - Dark text for readability
+    - Subtle shadows and borders
+    - Works great on light-colored sites
   </Tab>
   
   <Tab title="Dark Theme">
     Modern dark design that works great on dark websites.
     
-    ```css
-    .jasin-embed[data-theme="dark"] {
-      background: #1a1a1a;
-      color: #ffffff;
-      border: 1px solid #333333;
-    }
-    ```
+    - Dark background
+    - Light text for contrast
+    - Subtle highlights
+    - Perfect for dark-themed sites
   </Tab>
   
   <Tab title="Auto Theme">
-    Automatically adapts to user's system preference.
+    Automatically adapts to your visitor's system preference.
     
-    ```css
-    .jasin-embed[data-theme="auto"] {
-      /* Adapts based on prefers-color-scheme */
-    }
-    ```
+    - Detects user's dark/light mode setting
+    - Switches themes automatically
+    - Best user experience
+    - Works with any website design
   </Tab>
 </Tabs>
 
-## Dynamic Color Extraction
+## Customization Options
 
-Pro users get access to dynamic color extraction that automatically generates theme colors based on the product image:
+### Free Plan Features
+- **Three themes** - Light, dark, and auto
+- **Standard sizing** - Optimized dimensions
+- **Basic analytics** - View and click tracking
+- **Amazon affiliate support** - Uses default Jasin affiliate tag
 
-<AccordionGroup>
-  <Accordion title="How it works">
-    Our system analyzes the product image and extracts dominant colors to create a cohesive theme that matches the product.
-  </Accordion>
-  
-  <Accordion title="Color Palette">
-    - **Primary**: Main brand/product color
-    - **Secondary**: Complementary accent color  
-    - **Background**: Optimized background color
-    - **Text**: High contrast text color
-  </Accordion>
-  
-  <Accordion title="Fallback Colors">
-    If color extraction fails, the system falls back to the selected theme's default colors.
-  </Accordion>
-</AccordionGroup>
-
-## Performance & SEO
-
-### Fast Loading
-- **Static HTML**: No iframes or external dependencies
-- **Optimized Images**: WebP format with fallbacks
-- **Minimal CSS**: Inline critical styles
-- **Lazy Loading**: Images load when visible
-
-### SEO Friendly
-- **Structured Data**: JSON-LD markup for rich snippets
-- **Alt Text**: Descriptive image alt attributes
-- **Semantic HTML**: Proper heading hierarchy
-- **Mobile Responsive**: Works on all device sizes
+### Pro Plan Features
+- **Custom affiliate tags** - Use your own Amazon affiliate ID to earn commissions
+- **Advanced analytics** - Detailed insights with bot filtering
+- **Priority support** - Get help when you need it
 
 ## Best Practices
 
 <CardGroup cols={2}>
   <Card title="Placement" icon="location-dot">
-    Place embed cards within relevant content for better engagement
+    Place embed cards within relevant content for better engagement and higher click-through rates
   </Card>
-  <Card title="Loading" icon="clock">
-    Include the tracking script at the bottom of your page for optimal performance
+  <Card title="Context" icon="align-left">
+    Add context around your embeds - explain why you're recommending the product
   </Card>
-  <Card title="Styling" icon="palette">
-    Use CSS custom properties to match your site's design
+  <Card title="Theme Choice" icon="palette">
+    Choose themes that match your website's design for a seamless experience
   </Card>
-  <Card title="Testing" icon="flask">
-    Test embed cards across different devices and browsers
+  <Card title="Performance" icon="clock">
+    The script loads asynchronously so it won't slow down your page
   </Card>
-</CardGroup> 
+</CardGroup>
+
+## Common Use Cases
+
+### Blog Posts
+Perfect for product recommendations within your blog content:
+
+```html
+<p>I've been using this coffee maker for months and absolutely love it:</p>
+
+<script 
+  async 
+  src="https://getjasin.com/embed.js" 
+  data-id="coffee-maker-embed"
+  data-theme="light">
+</script>
+
+<p>The programmable features make my mornings so much easier!</p>
+```
+
+### Product Reviews
+Great for detailed product review articles:
+
+```html
+<h2>Our Top Pick: Best Wireless Headphones</h2>
+
+<script 
+  async 
+  src="https://getjasin.com/embed.js" 
+  data-id="headphones-embed"
+  data-theme="auto">
+</script>
+
+<p>After testing 15 different models, these headphones stood out...</p>
+```
+
+### Comparison Posts
+Use multiple embeds to compare products:
+
+```html
+<h3>Budget Option</h3>
+<script async src="https://getjasin.com/embed.js" data-id="budget-option"></script>
+
+<h3>Premium Choice</h3>
+<script async src="https://getjasin.com/embed.js" data-id="premium-option"></script>
+```
+
+## Technical Details
+
+### How It Works
+1. **Script loads** - The embed.js script loads asynchronously
+2. **Card renders** - Product data is fetched and the card is displayed
+3. **Tracking starts** - View tracking begins when the card is visible
+4. **Click tracking** - Clicks are tracked when users click through to Amazon
+
+### Performance
+- **Lazy loading** - Cards only load when they're about to be visible
+- **Cached data** - Product information is cached for fast loading
+- **Minimal footprint** - Small script size for fast page loads
+- **No dependencies** - Works without jQuery or other libraries
+
+### Compatibility
+- **All modern browsers** - Works in Chrome, Firefox, Safari, Edge
+- **Mobile responsive** - Optimized for phones and tablets
+- **CMS friendly** - Works with WordPress, Squarespace, Ghost, and more
+- **Email compatible** - Can be used in HTML emails (with limitations)
+
+## Analytics & Tracking
+
+Every embed automatically tracks:
+- **Views** - When the product card is displayed
+- **Clicks** - When users click through to Amazon
+- **Performance** - Click-through rates and engagement
+
+View detailed analytics in your dashboard to see which products perform best.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Embed not showing">
+    - Check that the script tag is properly formatted
+    - Ensure your embed ID is correct
+    - Verify the script isn't being blocked by ad blockers
+  </Accordion>
+  
+  <Accordion title="Wrong theme displaying">
+    - Check the data-theme attribute in your script tag
+    - For auto theme, ensure your site supports dark mode detection
+    - Try refreshing the page to see theme changes
+  </Accordion>
+  
+  <Accordion title="Analytics not tracking">
+    - Ensure the script tag is exactly as provided
+    - Check that JavaScript is enabled
+    - Analytics may take a few minutes to appear in your dashboard
+  </Accordion>
+</AccordionGroup> 

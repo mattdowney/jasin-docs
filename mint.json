@@ -18,32 +18,19 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@jasin.app"
+      "url": "mailto:support@getjasin.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://jasin.app"
+    "url": "https://getjasin.com"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    },
-    {
-      "name": "Developer Guide",
-      "url": "developer"
-    },
-    {
-      "name": "Admin",
-      "url": "admin"
-    }
-  ],
+
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://docs.jasin.app"
+      "url": "https://docs.getjasin.com"
     },
     {
       "name": "Community",
@@ -53,7 +40,7 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://jasin.app/blog"
+      "url": "https://getjasin.com/blog"
     }
   ],
   "navigation": [
@@ -70,42 +57,7 @@
       "pages": [
         "features/embed-cards",
         "features/analytics",
-        "features/themes",
-        "features/anti-abuse"
-      ]
-    },
-    {
-      "group": "Security",
-      "pages": [
-        "security/overview",
-        "security/device-fingerprinting",
-        "security/rate-limiting"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction",
-        "api-reference/authentication",
-        "api-reference/endpoints/analytics",
-        "api-reference/endpoints/embeds",
-        "api-reference/endpoints/products"
-      ]
-    },
-    {
-      "group": "Developer Resources",
-      "pages": [
-        "developer/integration",
-        "developer/embed-script",
-        "developer/webhooks"
-      ]
-    },
-    {
-      "group": "Admin Features",
-      "pages": [
-        "admin/dashboard",
-        "admin/anti-abuse",
-        "admin/analytics-health"
+        "features/themes"
       ]
     }
   ],

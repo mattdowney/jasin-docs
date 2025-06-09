@@ -1,103 +1,127 @@
 ---
-title: 'Authentication'
-description: 'Learn how to authenticate with the Jasin API'
+title: 'Account & Dashboard'
+description: 'Learn how to manage your Jasin account and access your dashboard'
 ---
 
-## API Key Authentication
+## Creating Your Account
 
-Jasin uses API key authentication for all API requests. You can find your API key in your dashboard settings.
+Getting started with Jasin is simple and free. You'll get 5 lifetime embed credits to try out the service.
 
-<Warning>
-  Keep your API key secure and never expose it in client-side code. All API requests should be made from your server.
-</Warning>
+### Sign Up Process
 
-### Getting Your API Key
-
-1. Log in to your [Jasin dashboard](https://jasin.app)
-2. Navigate to **Settings** → **API Keys**
-3. Copy your API key
-
-### Making Authenticated Requests
-
-Include your API key in the `Authorization` header of all requests:
-
-```bash
-curl -X GET https://jasin.app/api/embeds \
-  -H "Authorization: Bearer YOUR_API_KEY"
-```
-
-## Authentication Headers
-
-All API requests must include the following headers:
-
-| Header | Value | Required |
-|--------|-------|----------|
-| `Authorization` | `Bearer YOUR_API_KEY` | Yes |
-| `Content-Type` | `application/json` | For POST/PUT requests |
-
-## Rate Limits
-
-API requests are subject to rate limiting based on your subscription tier:
-
-### Free Tier
-- **100 requests per hour**
-- **1,000 requests per day**
-
-### Pro Tier
-- **1,000 requests per hour**
-- **10,000 requests per day**
+1. Visit [getjasin.com](https://getjasin.com)
+2. Click "Sign Up" in the top right corner
+3. Enter your email address and create a password
+4. Verify your email address
+5. Start creating embeds immediately!
 
 <Info>
-  Rate limits are enforced per API key. If you exceed your limit, you'll receive a `429 Too Many Requests` response.
+  Your free account includes 5 lifetime embed credits. Once you use them, you can upgrade to Pro for 25 credits per month.
 </Info>
 
-## Error Responses
+## Dashboard Overview
 
-Authentication errors will return appropriate HTTP status codes:
+Your dashboard is where you'll manage all your product embeds and view analytics.
 
-| Status Code | Description |
-|-------------|-------------|
-| `401` | Invalid or missing API key |
-| `403` | API key doesn't have required permissions |
-| `429` | Rate limit exceeded |
+### Main Features
 
-### Example Error Response
+| Section | Description |
+|---------|-------------|
+| **Create Embed** | Paste Amazon URLs and generate new product cards |
+| **My Embeds** | View and manage all your existing embeds |
+| **Analytics** | Track views, clicks, and performance |
+| **Settings** | Manage your account and subscription |
 
-```json
-{
-  "error": "Unauthorized",
-  "message": "Invalid API key",
-  "code": "INVALID_API_KEY"
-}
-```
+## Account Settings
 
-## Best Practices
+### Profile Information
+- **Email Address**: Update your email for account notifications
+- **Password**: Change your password for security
+- **Display Name**: Optional display name for your account
+
+### Subscription Management
+- **Current Plan**: View your current plan (Free or Pro)
+- **Usage**: See how many credits you've used
+- **Billing**: Manage your Pro subscription (if applicable)
+
+## Security Best Practices
 
 <AccordionGroup>
-  <Accordion title="Secure Storage">
-    Store your API key in environment variables, not in your code:
-    ```bash
-    export JASIN_API_KEY="your_api_key_here"
-    ```
+  <Accordion title="Strong Passwords">
+    Use a unique, strong password for your Jasin account. Consider using a password manager to generate and store secure passwords.
   </Accordion>
   
-  <Accordion title="Error Handling">
-    Always handle authentication errors gracefully:
-    ```javascript
-    if (response.status === 401) {
-      console.error('Invalid API key');
-      // Handle authentication error
-    }
-    ```
+  <Accordion title="Email Verification">
+    Always verify your email address to ensure you can recover your account if needed.
   </Accordion>
   
-  <Accordion title="Rate Limit Handling">
-    Implement exponential backoff for rate limit errors:
-    ```javascript
-    if (response.status === 429) {
-      const retryAfter = response.headers.get('Retry-After');
-      // Wait and retry
-    }
-    ```
+  <Accordion title="Regular Reviews">
+    Periodically review your embeds and analytics to ensure everything looks correct.
   </Accordion>
-</AccordionGroup> 
+</AccordionGroup>
+
+## Upgrading to Pro
+
+### Pro Plan Benefits
+- **25 credits per month** instead of 5 lifetime
+- **Custom affiliate tags** to earn commissions
+- **Advanced analytics** with bot filtering
+- **Priority support** for faster help
+
+### How to Upgrade
+1. Go to your dashboard settings
+2. Click "Upgrade to Pro"
+3. Choose monthly or annual billing
+4. Complete the secure checkout process
+5. Start using Pro features immediately
+
+## Account Limits
+
+### Free Plan Limits
+- **5 total embeds** for the lifetime of your account
+- **Basic themes** only (light, dark, auto)
+- **Standard analytics** (views and clicks)
+
+### Pro Plan Limits
+- **25 new embeds per month** (existing embeds continue working)
+- **All themes** and customization options
+- **Advanced analytics** with detailed insights
+
+<Warning>
+  If you downgrade from Pro to Free, your existing embeds will continue working, but you won't be able to create new ones until the next month or until you upgrade again.
+</Warning>
+
+## Getting Help
+
+### Support Options
+- **Help Center**: Browse common questions and guides
+- **Email Support**: Contact support@getjasin.com for assistance
+- **Pro Support**: Pro users get priority email support
+
+### Common Issues
+- **Forgot Password**: Use the "Forgot Password" link on the login page
+- **Email Not Verified**: Check your spam folder and resend verification
+- **Billing Questions**: Contact support with your account email
+
+## Data & Privacy
+
+### Your Data
+- **Embeds**: All your created embeds and their analytics
+- **Account Info**: Email, password (encrypted), and subscription details
+- **Usage Data**: How you use the service to improve our product
+
+### Data Export
+You can request an export of your data at any time by contacting support. This includes:
+- All your embed data
+- Analytics history
+- Account information
+
+### Account Deletion
+To delete your account:
+1. Contact support@getjasin.com
+2. Confirm your identity
+3. We'll permanently delete your account and data within 30 days
+
+<Info>
+  Deleting your account will stop all your embeds from working. Make sure to remove them from your websites first.
+</Info> 
