@@ -1,0 +1,199 @@
+---
+title: 'Security Overview'
+description: 'Multi-layered anti-abuse protection with zero UX impact'
+---
+
+## Security Architecture
+
+Jasin implements a comprehensive, multi-layered security system designed to prevent abuse while maintaining a seamless user experience. All security measures operate silently in the background.
+
+<CardGroup cols={2}>
+  <Card title="Device Fingerprinting" icon="fingerprint" href="/security/device-fingerprinting">
+    SHA256-based browser and device tracking for abuse detection
+  </Card>
+  <Card title="Rate Limiting" icon="gauge" href="/security/rate-limiting">
+    Multi-tier protection with circuit breaker patterns
+  </Card>
+  <Card title="Email Reputation" icon="envelope-circle-check">
+    Domain scoring system with disposable email blocking
+  </Card>
+  <Card title="Risk Assessment" icon="shield-exclamation">
+    Real-time signup risk evaluation and blocking
+  </Card>
+</CardGroup>
+
+## Core Security Components
+
+### 1. Anti-Abuse System
+Our anti-abuse system monitors user behavior patterns and automatically blocks suspicious activity:
+
+- **Silent Operation**: All protection happens in the background
+- **Zero UX Impact**: Legitimate users never see security measures
+- **Real-time Monitoring**: Continuous threat assessment
+- **Automated Response**: Instant blocking of high-risk activities
+
+### 2. Database Security
+Comprehensive data protection at the database level:
+
+```sql
+-- Device fingerprints with SHA256 hashing
+device_fingerprints (
+  fingerprint_hash VARCHAR(64) PRIMARY KEY, -- SHA256 hash
+  created_at TIMESTAMP,
+  user_count INTEGER DEFAULT 1
+);
+
+-- Email domain reputation scoring
+email_domain_reputation (
+  domain VARCHAR(255) PRIMARY KEY,
+  reputation_score INTEGER CHECK (reputation_score >= 0 AND reputation_score <= 100),
+  is_disposable BOOLEAN DEFAULT FALSE,
+  is_blocked BOOLEAN DEFAULT FALSE
+);
+```
+
+### 3. Risk Assessment Engine
+Multi-factor risk scoring system:
+
+<AccordionGroup>
+  <Accordion title="Email Risk Factors">
+    - **Disposable Domains**: +40 risk points
+    - **Low Reputation**: +20 risk points  
+    - **Blocked Domains**: Automatic rejection
+    - **New Domains**: +10 risk points
+  </Accordion>
+  
+  <Accordion title="Device Risk Factors">
+    - **Multiple Accounts**: +30 risk points per duplicate
+    - **Suspicious User-Agent**: +15 risk points
+    - **VPN/Proxy Detection**: +25 risk points
+    - **Rapid Signups**: +20 risk points
+  </Accordion>
+  
+  <Accordion title="Behavioral Risk Factors">
+    - **Unusual Usage Patterns**: +35 risk points
+    - **Credit Farming**: +50 risk points
+    - **Bot-like Behavior**: +40 risk points
+    - **Rapid API Calls**: +25 risk points
+  </Accordion>
+</AccordionGroup>
+
+## Risk Thresholds
+
+### Signup Protection
+- **Score 0-59**: Account created normally
+- **Score 60-89**: Account flagged for monitoring
+- **Score 90+**: Account creation blocked
+
+### Usage Monitoring
+- **Low Risk (0-29)**: Normal operation
+- **Medium Risk (30-59)**: Enhanced monitoring
+- **High Risk (60-89)**: Rate limiting applied
+- **Critical Risk (90+)**: Account suspended
+
+## Security Features
+
+### Device Fingerprinting
+Advanced browser and device identification:
+
+```typescript
+interface DeviceFingerprint {
+  userAgent: string;
+  language: string;
+  screenResolution: string;
+  timezone: string;
+  ipHash: string; // SHA256 hashed
+}
+```
+
+### Email Domain Reputation
+Comprehensive email domain scoring:
+
+- **Trusted Domains** (90-100): Gmail, Outlook, ProtonMail
+- **Standard Domains** (50-89): Most legitimate providers
+- **Suspicious Domains** (10-49): Flagged for monitoring
+- **Blocked Domains** (0-9): Disposable/temporary services
+
+### PAAPI Rate Limiting
+Multi-layer Amazon API protection:
+
+- **Daily Limit**: 8,640 requests (6 per minute × 1,440 minutes)
+- **Hourly Limit**: 360 requests (6 per minute × 60 minutes)  
+- **Minute Limit**: 6 requests per minute
+- **Circuit Breaker**: Automatic failure protection
+
+## Admin Monitoring
+
+### Real-time Dashboard
+Comprehensive security monitoring at `/admin/anti-abuse`:
+
+- **Active Threats**: Current high-risk activities
+- **Abuse Signals**: Recent suspicious events
+- **Device Duplicates**: Multiple accounts per device
+- **Domain Blocks**: Blocked email domains
+
+### Alert System
+Automated notifications for:
+
+- **Critical Risk Events**: Score 90+ activities
+- **Mass Signup Attempts**: Rapid account creation
+- **API Abuse**: Unusual usage patterns
+- **System Anomalies**: Unexpected behavior patterns
+
+## Implementation
+
+### Signup Flow Protection
+```typescript
+// Risk assessment during signup
+const riskScore = await assessSignupRisk(email, deviceFingerprint);
+
+if (riskScore >= 90) {
+  throw new Error('Account creation blocked');
+} else if (riskScore >= 60) {
+  // Flag account for monitoring
+  await flagAccountForMonitoring(userId);
+}
+```
+
+### API Usage Monitoring
+```typescript
+// Check user status before API calls
+const isBlocked = await checkUserBlocked(userId);
+if (isBlocked) {
+  throw new Error('Access denied');
+}
+
+// Analyze usage patterns
+await analyzeCreditUsage(userId, creditsUsed, domains);
+```
+
+## Privacy & Compliance
+
+### Data Protection
+- **Hashed Identifiers**: All sensitive data is SHA256 hashed
+- **No Personal Data**: We don't store personally identifiable information
+- **GDPR Compliant**: Respects user privacy rights
+- **Data Retention**: Automatic cleanup of old security data
+
+### Transparency
+- **Open Documentation**: Security measures are documented
+- **User Control**: Users can request their security data
+- **Appeal Process**: Blocked users can appeal decisions
+- **Regular Audits**: Security system reviewed quarterly
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Legitimate Use" icon="check-circle">
+    Follow terms of service and use credits appropriately
+  </Card>
+  <Card title="Account Security" icon="lock">
+    Use strong passwords and secure email addresses
+  </Card>
+  <Card title="API Usage" icon="code">
+    Respect rate limits and avoid automated abuse
+  </Card>
+  <Card title="Reporting" icon="flag">
+    Report suspicious activity to our security team
+  </Card>
+</CardGroup> 

@@ -1,0 +1,270 @@
+---
+title: "Embeds API"
+api: "POST https://jasin.app/api/embeds"
+description: "Create and manage Amazon product embed cards"
+---
+
+## Create Embed
+
+<ParamField body="amazon_url" type="string" required>
+  The Amazon product URL to create an embed for
+</ParamField>
+
+<ParamField body="theme" type="string" default="light">
+  Theme for the embed card. Options: `light`, `dark`, `auto`
+</ParamField>
+
+<ParamField body="affiliate_tag" type="string">
+  Custom affiliate tag (Pro tier only)
+</ParamField>
+
+<ParamField body="show_prime" type="boolean" default="true">
+  Whether to show Prime badge
+</ParamField>
+
+<ParamField body="show_rating" type="boolean" default="true">
+  Whether to show product rating
+</ParamField>
+
+### Request Example
+
+<CodeGroup>
+```bash cURL
+curl -X POST https://jasin.app/api/embeds \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "amazon_url": "https://www.amazon.com/dp/B08N5WRWNW",
+    "theme": "light",
+    "affiliate_tag": "your-tag-20",
+    "show_prime": true,
+    "show_rating": true
+  }'
+```
+
+```javascript JavaScript
+const response = await fetch('https://jasin.app/api/embeds', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    amazon_url: 'https://www.amazon.com/dp/B08N5WRWNW',
+    theme: 'light',
+    affiliate_tag: 'your-tag-20',
+    show_prime: true,
+    show_rating: true
+  })
+});
+
+const embed = await response.json();
+```
+</CodeGroup>
+
+### Response
+
+<ResponseField name="success" type="boolean">
+  Whether the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  <Expandable title="properties">
+    <ResponseField name="id" type="string">
+      Unique identifier for the embed
+    </ResponseField>
+    <ResponseField name="amazon_url" type="string">
+      Original Amazon product URL
+    </ResponseField>
+    <ResponseField name="embed_url" type="string">
+      URL to view the embed card
+    </ResponseField>
+    <ResponseField name="html_code" type="string">
+      HTML code to embed on your website
+    </ResponseField>
+    <ResponseField name="theme" type="string">
+      Theme used for the embed
+    </ResponseField>
+    <ResponseField name="product" type="object">
+      <Expandable title="properties">
+        <ResponseField name="title" type="string">
+          Product title
+        </ResponseField>
+        <ResponseField name="price" type="string">
+          Current price
+        </ResponseField>
+        <ResponseField name="image_url" type="string">
+          Product image URL
+        </ResponseField>
+        <ResponseField name="rating" type="number">
+          Product rating (1-5)
+        </ResponseField>
+        <ResponseField name="review_count" type="number">
+          Number of reviews
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+```json Response Example
+{
+  "success": true,
+  "data": {
+    "id": "embed_abc123",
+    "amazon_url": "https://www.amazon.com/dp/B08N5WRWNW",
+    "embed_url": "https://jasin.app/embed/abc123",
+    "html_code": "<div id=\"jasin-embed-abc123\" class=\"jasin-embed\">...</div><script src=\"https://jasin.app/embed.js\"></script>",
+    "theme": "light",
+    "product": {
+      "title": "Echo Dot (4th Gen) - Smart speaker with Alexa",
+      "price": "$49.99",
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/...",
+      "rating": 4.7,
+      "review_count": 234567
+    }
+  },
+  "meta": {
+    "timestamp": "2024-01-15T10:30:00Z",
+    "request_id": "req_abc123"
+  }
+}
+```
+
+---
+
+## List Embeds
+
+<Api method="GET" url="https://jasin.app/api/embeds" />
+
+Retrieve a list of your embed cards.
+
+### Query Parameters
+
+<ParamField query="limit" type="number" default="20">
+  Number of embeds to return (max 100)
+</ParamField>
+
+<ParamField query="offset" type="number" default="0">
+  Number of embeds to skip
+</ParamField>
+
+<ParamField query="theme" type="string">
+  Filter by theme: `light`, `dark`, `auto`
+</ParamField>
+
+### Request Example
+
+<CodeGroup>
+```bash cURL
+curl -X GET "https://jasin.app/api/embeds?limit=10&offset=0" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+```javascript JavaScript
+const response = await fetch('https://jasin.app/api/embeds?limit=10&offset=0', {
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+});
+
+const embeds = await response.json();
+```
+</CodeGroup>
+
+---
+
+## Get Embed
+
+<Api method="GET" url="https://jasin.app/api/embeds/{id}" />
+
+Retrieve a specific embed by ID.
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The embed ID
+</ParamField>
+
+### Request Example
+
+<CodeGroup>
+```bash cURL
+curl -X GET https://jasin.app/api/embeds/abc123 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+```javascript JavaScript
+const response = await fetch('https://jasin.app/api/embeds/abc123', {
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+});
+
+const embed = await response.json();
+```
+</CodeGroup>
+
+---
+
+## Update Embed
+
+<Api method="PUT" url="https://jasin.app/api/embeds/{id}" />
+
+Update an existing embed's settings.
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The embed ID
+</ParamField>
+
+### Body Parameters
+
+<ParamField body="theme" type="string">
+  Theme for the embed card
+</ParamField>
+
+<ParamField body="affiliate_tag" type="string">
+  Custom affiliate tag (Pro tier only)
+</ParamField>
+
+<ParamField body="show_prime" type="boolean">
+  Whether to show Prime badge
+</ParamField>
+
+<ParamField body="show_rating" type="boolean">
+  Whether to show product rating
+</ParamField>
+
+---
+
+## Delete Embed
+
+<Api method="DELETE" url="https://jasin.app/api/embeds/{id}" />
+
+Delete an embed card.
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The embed ID
+</ParamField>
+
+### Request Example
+
+<CodeGroup>
+```bash cURL
+curl -X DELETE https://jasin.app/api/embeds/abc123 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+```javascript JavaScript
+const response = await fetch('https://jasin.app/api/embeds/abc123', {
+  method: 'DELETE',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+});
+```
+</CodeGroup> 

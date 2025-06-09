@@ -1,0 +1,117 @@
+---
+title: 'Quickstart'
+description: 'Get up and running with Jasin in under 5 minutes'
+---
+
+## Setup your account
+
+The first step to world-class documentation is setting up your editing environment.
+
+<AccordionGroup>
+  <Accordion icon="user-plus" title="Sign up for Jasin">
+    Create your free account at [jasin.app](https://jasin.app) to get started with 5 lifetime embed credits.
+  </Accordion>
+  <Accordion icon="key" title="Get your API key">
+    Navigate to your dashboard settings to find your API key for programmatic access.
+  </Accordion>
+</AccordionGroup>
+
+## Create your first embed
+
+<Steps>
+  <Step title="Find an Amazon product">
+    Copy any Amazon product URL, for example:
+    ```
+    https://www.amazon.com/dp/B08N5WRWNW
+    ```
+  </Step>
+  <Step title="Create the embed">
+    Use the dashboard or API to create your first embed card:
+    
+    <CodeGroup>
+    ```bash cURL
+    curl -X POST https://jasin.app/api/embeds \
+      -H "Authorization: Bearer YOUR_API_KEY" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "amazon_url": "https://www.amazon.com/dp/B08N5WRWNW",
+        "theme": "light"
+      }'
+    ```
+    
+    ```javascript JavaScript
+    const response = await fetch('https://jasin.app/api/embeds', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer YOUR_API_KEY',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        amazon_url: 'https://www.amazon.com/dp/B08N5WRWNW',
+        theme: 'light'
+      })
+    });
+    
+    const embed = await response.json();
+    ```
+    </CodeGroup>
+  </Step>
+  <Step title="Embed on your website">
+    Copy the generated HTML code and paste it into your website:
+    
+    ```html
+    <div id="jasin-embed-123" class="jasin-embed">
+      <!-- Product card HTML -->
+    </div>
+    <script src="https://jasin.app/embed.js"></script>
+    ```
+  </Step>
+</Steps>
+
+## Track your analytics
+
+Once your embed is live, you can track its performance:
+
+<Card title="View Analytics" icon="chart-line" href="/features/analytics">
+  Monitor views, clicks, and conversion rates in real-time
+</Card>
+
+### Key Metrics
+
+- **Views**: How many times your product card was displayed
+- **Clicks**: How many users clicked through to Amazon
+- **CTR**: Click-through rate percentage
+- **Revenue**: Estimated affiliate commissions (Pro tier)
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Customize Themes"
+    icon="palette"
+    href="/features/themes"
+  >
+    Learn about theme customization and dynamic color extraction
+  </Card>
+  <Card
+    title="API Reference"
+    icon="code"
+    href="/api-reference/introduction"
+  >
+    Explore the full API documentation
+  </Card>
+  <Card
+    title="Embed Script"
+    icon="javascript"
+    href="/developer/embed-script"
+  >
+    Advanced integration with the embed script
+  </Card>
+  <Card
+    title="Security Features"
+    icon="shield"
+    href="/security/overview"
+  >
+    Learn about our anti-abuse protection
+  </Card>
+</CardGroup> 

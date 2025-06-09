@@ -1,0 +1,117 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Jasin Documentation",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373",
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#07C983"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@jasin.app"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://jasin.app"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
+      "name": "Developer Guide",
+      "url": "developer"
+    },
+    {
+      "name": "Admin",
+      "url": "admin"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://docs.jasin.app"
+    },
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://mintlify.com/community"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://jasin.app/blog"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "quickstart",
+        "essentials/authentication"
+      ]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        "features/embed-cards",
+        "features/analytics",
+        "features/themes",
+        "features/anti-abuse"
+      ]
+    },
+    {
+      "group": "Security",
+      "pages": [
+        "security/overview",
+        "security/device-fingerprinting",
+        "security/rate-limiting"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction",
+        "api-reference/authentication",
+        "api-reference/endpoints/analytics",
+        "api-reference/endpoints/embeds",
+        "api-reference/endpoints/products"
+      ]
+    },
+    {
+      "group": "Developer Resources",
+      "pages": [
+        "developer/integration",
+        "developer/embed-script",
+        "developer/webhooks"
+      ]
+    },
+    {
+      "group": "Admin Features",
+      "pages": [
+        "admin/dashboard",
+        "admin/anti-abuse",
+        "admin/analytics-health"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/jasinapp",
+    "github": "https://github.com/jasin-app",
+    "linkedin": "https://www.linkedin.com/company/jasin-app"
+  }
+} 

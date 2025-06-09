@@ -1,0 +1,103 @@
+---
+title: 'Authentication'
+description: 'Learn how to authenticate with the Jasin API'
+---
+
+## API Key Authentication
+
+Jasin uses API key authentication for all API requests. You can find your API key in your dashboard settings.
+
+<Warning>
+  Keep your API key secure and never expose it in client-side code. All API requests should be made from your server.
+</Warning>
+
+### Getting Your API Key
+
+1. Log in to your [Jasin dashboard](https://jasin.app)
+2. Navigate to **Settings** → **API Keys**
+3. Copy your API key
+
+### Making Authenticated Requests
+
+Include your API key in the `Authorization` header of all requests:
+
+```bash
+curl -X GET https://jasin.app/api/embeds \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Authentication Headers
+
+All API requests must include the following headers:
+
+| Header | Value | Required |
+|--------|-------|----------|
+| `Authorization` | `Bearer YOUR_API_KEY` | Yes |
+| `Content-Type` | `application/json` | For POST/PUT requests |
+
+## Rate Limits
+
+API requests are subject to rate limiting based on your subscription tier:
+
+### Free Tier
+- **100 requests per hour**
+- **1,000 requests per day**
+
+### Pro Tier
+- **1,000 requests per hour**
+- **10,000 requests per day**
+
+<Info>
+  Rate limits are enforced per API key. If you exceed your limit, you'll receive a `429 Too Many Requests` response.
+</Info>
+
+## Error Responses
+
+Authentication errors will return appropriate HTTP status codes:
+
+| Status Code | Description |
+|-------------|-------------|
+| `401` | Invalid or missing API key |
+| `403` | API key doesn't have required permissions |
+| `429` | Rate limit exceeded |
+
+### Example Error Response
+
+```json
+{
+  "error": "Unauthorized",
+  "message": "Invalid API key",
+  "code": "INVALID_API_KEY"
+}
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Secure Storage">
+    Store your API key in environment variables, not in your code:
+    ```bash
+    export JASIN_API_KEY="your_api_key_here"
+    ```
+  </Accordion>
+  
+  <Accordion title="Error Handling">
+    Always handle authentication errors gracefully:
+    ```javascript
+    if (response.status === 401) {
+      console.error('Invalid API key');
+      // Handle authentication error
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Rate Limit Handling">
+    Implement exponential backoff for rate limit errors:
+    ```javascript
+    if (response.status === 429) {
+      const retryAfter = response.headers.get('Retry-After');
+      // Wait and retry
+    }
+    ```
+  </Accordion>
+</AccordionGroup> 

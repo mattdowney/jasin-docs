@@ -1,0 +1,205 @@
+---
+title: 'Analytics'
+description: 'Track views, clicks, and conversion rates with advanced bot detection'
+---
+
+## Overview
+
+Jasin provides comprehensive analytics for all your embed cards with advanced bot detection, real-time tracking, and detailed performance insights.
+
+## Key Metrics
+
+<CardGroup cols={2}>
+  <Card title="Views" icon="eye">
+    Total number of times your embed cards were displayed
+  </Card>
+  <Card title="Clicks" icon="mouse-pointer">
+    Number of users who clicked through to Amazon
+  </Card>
+  <Card title="CTR" icon="percentage">
+    Click-through rate (clicks ÷ views × 100)
+  </Card>
+  <Card title="Revenue" icon="dollar-sign">
+    Estimated affiliate commissions (Pro tier)
+  </Card>
+</CardGroup>
+
+## Analytics Dashboard
+
+### Real-time Data
+- **Live Updates**: Analytics update in real-time as users interact with your embeds
+- **Time Filters**: View data for today, week, month, or custom date ranges
+- **Top Performers**: See which products are generating the most engagement
+
+### Bot Detection
+Our advanced bot detection system filters out non-human traffic:
+
+<AccordionGroup>
+  <Accordion title="Detection Methods">
+    - **User-Agent Analysis**: Identifies known bot signatures
+    - **Behavioral Patterns**: Detects automated interaction patterns
+    - **IP Reputation**: Filters traffic from known bot networks
+    - **JavaScript Execution**: Requires JavaScript for view tracking
+  </Accordion>
+  
+  <Accordion title="Bot Categories">
+    - **Search Engines**: Google, Bing, Yahoo crawlers
+    - **Social Media**: Facebook, Twitter, LinkedIn bots
+    - **Monitoring**: Uptime monitors and site checkers
+    - **Malicious**: Scrapers and spam bots
+  </Accordion>
+  
+  <Accordion title="Filtering Options">
+    - **Free Tier**: Basic bot filtering included
+    - **Pro Tier**: Advanced filtering with detailed categorization
+    - **Admin View**: See both filtered and unfiltered data
+  </Accordion>
+</AccordionGroup>
+
+## Tracking Implementation
+
+### Automatic Tracking
+The embed script automatically tracks views and clicks:
+
+```html
+<!-- Embed card HTML -->
+<div id="jasin-embed-abc123" class="jasin-embed">
+  <!-- Product card content -->
+</div>
+
+<!-- Tracking script (required) -->
+<script src="https://jasin.app/embed.js"></script>
+```
+
+### View Tracking
+Views are tracked when:
+- The embed card becomes visible in the viewport
+- Uses Intersection Observer API for accuracy
+- Beacon API for reliable tracking (with fetch fallback)
+
+### Click Tracking
+Clicks are tracked through:
+- Redirect URLs that log the click before sending to Amazon
+- Preserves affiliate tags and tracking parameters
+- Works with all Amazon product links
+
+## Analytics API
+
+Access your analytics data programmatically:
+
+<CodeGroup>
+```bash cURL
+curl -X GET "https://jasin.app/api/analytics?period=7d" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+```javascript JavaScript
+const analytics = await fetch('https://jasin.app/api/analytics?period=7d', {
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+});
+
+const data = await analytics.json();
+```
+</CodeGroup>
+
+### Response Format
+```json
+{
+  "summary": {
+    "total_views": 1250,
+    "total_clicks": 89,
+    "ctr": 7.12,
+    "estimated_revenue": 45.67
+  },
+  "top_products": [
+    {
+      "embed_id": "abc123",
+      "title": "Product Name",
+      "views": 450,
+      "clicks": 32,
+      "ctr": 7.11
+    }
+  ],
+  "daily_stats": [
+    {
+      "date": "2024-01-15",
+      "views": 180,
+      "clicks": 12
+    }
+  ]
+}
+```
+
+## Data Retention
+
+### Retention Policies
+- **Free Tier**: 30 days of detailed analytics
+- **Pro Tier**: 90 days of detailed analytics
+- **Aggregated Data**: Permanent retention of monthly summaries
+
+### Automated Cleanup
+- Daily cleanup jobs remove old detailed records
+- Materialized views maintain performance
+- Export capabilities before data expires
+
+## Analytics Health Monitoring
+
+Pro users get access to analytics health monitoring:
+
+### Data Integrity Checks
+- **Counter Accuracy**: Compares cached counters with actual event records
+- **Missing Data**: Identifies gaps in tracking data
+- **Duplicate Events**: Detects and flags duplicate tracking events
+
+### Health Dashboard
+- **Discrepancy Reports**: Shows differences between counters and records
+- **Data Quality Score**: Overall health percentage
+- **Automatic Fixes**: One-click repair for common issues
+
+## Performance Optimization
+
+### Materialized Views
+- **Hourly Refresh**: Analytics views update every hour
+- **Optimized Queries**: Fast dashboard loading
+- **Concurrent Access**: Multiple users can view analytics simultaneously
+
+### Caching Strategy
+- **Redis Cache**: Frequently accessed data cached for 5 minutes
+- **CDN Integration**: Static analytics assets served from CDN
+- **Background Jobs**: Heavy calculations run asynchronously
+
+## Privacy & Compliance
+
+### Data Collection
+- **No Personal Data**: We don't collect personally identifiable information
+- **IP Anonymization**: IP addresses are hashed for privacy
+- **GDPR Compliant**: Respects user privacy preferences
+
+### User Control
+- **Opt-out Support**: Respects Do Not Track headers
+- **Data Export**: Users can export their analytics data
+- **Data Deletion**: Complete data removal on account deletion
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Missing Analytics">
+    - Verify the tracking script is included
+    - Check for JavaScript errors in browser console
+    - Ensure embed cards are visible in viewport
+  </Accordion>
+  
+  <Accordion title="Inaccurate Counts">
+    - Bot filtering may affect view counts
+    - Check analytics health dashboard for discrepancies
+    - Verify embed implementation matches documentation
+  </Accordion>
+  
+  <Accordion title="API Errors">
+    - Check API key authentication
+    - Verify date range parameters
+    - Review rate limiting status
+  </Accordion>
+</AccordionGroup> 

@@ -1,0 +1,203 @@
+---
+title: 'API Introduction'
+description: 'RESTful API for creating and managing Amazon product embeds'
+---
+
+## Welcome to the Jasin API
+
+The Jasin API provides a simple, RESTful interface for creating and managing Amazon product embed cards. Our API is designed for developers who want to integrate Jasin's functionality into their applications.
+
+## Base URL
+
+All API requests should be made to:
+
+```
+https://jasin.app/api
+```
+
+## Authentication
+
+All API requests require authentication using an API key in the Authorization header:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://jasin.app/api/embeds
+```
+
+<Card title="Get Your API Key" icon="key" href="/essentials/authentication">
+  Learn how to obtain and use your API key
+</Card>
+
+## Rate Limits
+
+API requests are rate limited based on your subscription tier:
+
+| Tier | Hourly Limit | Daily Limit |
+|------|--------------|-------------|
+| Free | 100 requests | 1,000 requests |
+| Pro  | 1,000 requests | 10,000 requests |
+
+## Response Format
+
+All API responses are returned in JSON format:
+
+```json
+{
+  "success": true,
+  "data": {
+    // Response data
+  },
+  "meta": {
+    "timestamp": "2024-01-15T10:30:00Z",
+    "request_id": "req_abc123"
+  }
+}
+```
+
+### Error Responses
+
+Error responses include detailed information:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "INVALID_AMAZON_URL",
+    "message": "The provided Amazon URL is not valid",
+    "details": {
+      "url": "invalid-url",
+      "expected_format": "https://www.amazon.com/dp/ASIN"
+    }
+  },
+  "meta": {
+    "timestamp": "2024-01-15T10:30:00Z",
+    "request_id": "req_abc123"
+  }
+}
+```
+
+## HTTP Status Codes
+
+| Code | Description |
+|------|-------------|
+| `200` | Success |
+| `201` | Created |
+| `400` | Bad Request |
+| `401` | Unauthorized |
+| `403` | Forbidden |
+| `404` | Not Found |
+| `429` | Too Many Requests |
+| `500` | Internal Server Error |
+
+## Available Endpoints
+
+<CardGroup cols={2}>
+  <Card title="Embeds" icon="code" href="/api-reference/endpoints/embeds">
+    Create and manage product embed cards
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/api-reference/endpoints/analytics">
+    Access view and click analytics data
+  </Card>
+  <Card title="Products" icon="box" href="/api-reference/endpoints/products">
+    Retrieve Amazon product information
+  </Card>
+</CardGroup>
+
+## SDKs and Libraries
+
+### JavaScript/Node.js
+
+```javascript
+// Install the Jasin SDK
+npm install @jasin/sdk
+
+// Initialize the client
+import { JasinClient } from '@jasin/sdk';
+
+const jasin = new JasinClient({
+  apiKey: 'your-api-key'
+});
+
+// Create an embed
+const embed = await jasin.embeds.create({
+  amazon_url: 'https://www.amazon.com/dp/B08N5WRWNW',
+  theme: 'light'
+});
+```
+
+### Python
+
+```python
+# Install the Jasin SDK
+pip install jasin-sdk
+
+# Initialize the client
+from jasin import JasinClient
+
+jasin = JasinClient(api_key='your-api-key')
+
+# Create an embed
+embed = jasin.embeds.create(
+    amazon_url='https://www.amazon.com/dp/B08N5WRWNW',
+    theme='light'
+)
+```
+
+## Webhooks
+
+Jasin supports webhooks for real-time notifications:
+
+- **Embed Created**: Notified when a new embed is created
+- **Analytics Updated**: Notified when analytics data changes
+- **Credit Limit Reached**: Notified when approaching credit limits
+
+<Card title="Webhook Documentation" icon="webhook" href="/developer/webhooks">
+  Learn how to set up and handle webhooks
+</Card>
+
+## Testing
+
+### Sandbox Environment
+
+Use our sandbox environment for testing:
+
+```
+https://sandbox.jasin.app/api
+```
+
+- **No Credit Usage**: Sandbox requests don't consume credits
+- **Mock Data**: Returns realistic but fake product data
+- **Rate Limits**: Same limits as production for testing
+
+### Example Requests
+
+<CodeGroup>
+```bash Create Embed
+curl -X POST https://jasin.app/api/embeds \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "amazon_url": "https://www.amazon.com/dp/B08N5WRWNW",
+    "theme": "light"
+  }'
+```
+
+```bash Get Analytics
+curl -X GET "https://jasin.app/api/analytics?period=7d" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+```bash List Embeds
+curl -X GET https://jasin.app/api/embeds \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+</CodeGroup>
+
+## Support
+
+Need help with the API?
+
+- **Documentation**: Comprehensive guides and examples
+- **Community**: Join our developer community
+- **Support**: Email support@jasin.app for technical assistance
+- **Status Page**: Check API status at status.jasin.app 
