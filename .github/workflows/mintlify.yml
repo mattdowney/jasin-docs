@@ -1,0 +1,22 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - '**.mdx'
+      - 'mint.json'
+      - 'features/**'
+      - 'essentials/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Mintlify
+        uses: mintlify/action@v1
+        with:
+          mintlify-api-key: ${{ secrets.MINTLIFY_API_KEY }} 
