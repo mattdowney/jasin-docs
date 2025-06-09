@@ -25,19 +25,6 @@
     "name": "Dashboard",
     "url": "https://getjasin.com"
   },
-
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://docs.getjasin.com"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://getjasin.com/blog"
-    }
-  ],
   "navigation": [
     {
       "group": "Get Started",
