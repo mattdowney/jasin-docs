@@ -190,7 +190,7 @@ checkUserBlocked(userId: string)
 ### Email Reputation Scoring
 - **Blocked domains** (score 0): Automatic signup block
 - **Disposable emails**: +40 risk points
-- **Low reputation** (<30): +20 risk points
+- **Low reputation** (score &lt;30): +20 risk points
 - **Trusted domains** (90+): Gmail, Outlook, ProtonMail, etc.
 
 ### Device Fingerprinting
@@ -199,7 +199,7 @@ checkUserBlocked(userId: string)
 - Triggers: Medium severity signal when >2 accounts share fingerprint
 
 ### Usage Pattern Detection
-- **Rapid credit burn**: <1 hour to use 3+ credits (+40 suspicious score)
+- **Rapid credit burn**: &lt;1 hour to use 3+ credits (+40 suspicious score)
 - **Test domains**: localhost, example.com, 127.0.0.1 (+30 suspicious score)
 - **Critical threshold**: 90+ suspicious score triggers blocking
 

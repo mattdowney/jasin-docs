@@ -1,0 +1,22 @@
+{
+  "name": "jasin-docs",
+  "version": "1.0.0",
+  "description": "Official documentation for [Jasin](https://getjasin.com) - Transform Amazon product URLs into beautiful, embeddable product cards.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "mintlify dev",
+    "build": "mintlify build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:mdx": "prettier --write \"**/*.mdx\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@prettier/plugin-xml": "^3.4.1",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.12"
+  }
+}

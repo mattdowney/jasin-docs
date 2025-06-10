@@ -1,11 +1,14 @@
 ---
-title: 'Analytics'
-description: 'Track views, clicks, and conversion rates with advanced bot detection'
+title: "Analytics"
+description: "Track views, clicks, and conversion rates with advanced bot detection"
 ---
 
 ## Overview
 
-Jasin provides comprehensive analytics for all your embed cards with advanced bot detection, real-time tracking, and detailed performance insights.
+Jasin provides real-time analytics for all your embed cards with advanced bot detection and
+performance insights. Data updates automatically as users interact with your embeds.
+
+---
 
 ## Key Metrics
 
@@ -13,10 +16,10 @@ Jasin provides comprehensive analytics for all your embed cards with advanced bo
   <Card title="Views" icon="eye">
     Total number of times your embed cards were displayed
   </Card>
-  <Card title="Clicks" icon="mouse-pointer">
+  <Card title="Clicks" icon="arrow-pointer">
     Number of users who clicked through to Amazon
   </Card>
-  <Card title="CTR" icon="percentage">
+  <Card title="CTR" icon="percent">
     Click-through rate (clicks ÷ views × 100)
   </Card>
   <Card title="Revenue" icon="dollar-sign">
@@ -24,150 +27,120 @@ Jasin provides comprehensive analytics for all your embed cards with advanced bo
   </Card>
 </CardGroup>
 
-## Analytics Dashboard
+---
 
-### Real-time Data
-- **Live Updates**: Analytics update in real-time as users interact with your embeds
-- **Time Filters**: View data for today, week, month, or custom date ranges
+## Real-Time Dashboard
+
+### Data Filters
+
+- **Time Ranges**: View data for today, last 7 days, this month, or custom date ranges
 - **Top Performers**: See which products are generating the most engagement
 
 ### Bot Detection
+
 Our advanced bot detection system filters out non-human traffic:
 
 <AccordionGroup>
   <Accordion title="Detection Methods">
-    - **User-Agent Analysis**: Identifies known bot signatures
+    - **User-Agent Analysis**: Identifies known bot signatures 
     - **Behavioral Patterns**: Detects automated interaction patterns
     - **IP Reputation**: Filters traffic from known bot networks
     - **JavaScript Execution**: Requires JavaScript for view tracking
   </Accordion>
-  
-  <Accordion title="Bot Categories">
-    - **Search Engines**: Google, Bing, Yahoo crawlers
-    - **Social Media**: Facebook, Twitter, LinkedIn bots
-    - **Monitoring**: Uptime monitors and site checkers
-    - **Malicious**: Scrapers and spam bots
-  </Accordion>
-  
+
+<Accordion title="Bot Categories">
+  - **Search Engines**: Google, Bing, Yahoo crawlers - **Social Media**: Facebook, Twitter, LinkedIn
+  - **Monitoring**: Uptime monitors and site checkers - **Malicious**: Scrapers and spam bots
+</Accordion>
+
   <Accordion title="Filtering Options">
-    - **Free Tier**: Basic bot filtering included
-    - **Pro Tier**: Advanced filtering with detailed categorization
+    - **Free Tier**: Basic bot filtering included 
+    - **Pro Tier**: Advanced filtering with detailed categorization 
     - **Admin View**: See both filtered and unfiltered data
   </Accordion>
 </AccordionGroup>
 
+---
+
 ## Tracking Implementation
 
 ### Automatic Tracking
+
 The embed script automatically tracks views and clicks:
 
 ```html
-<!-- Embed card HTML -->
-<div id="jasin-embed-abc123" class="jasin-embed">
-  <!-- Product card content -->
-</div>
-
-<!-- Tracking script (required) -->
-<script src="https://getjasin.com/embed.js"></script>
+<!-- Jasin embed script (automatically generates the card) -->
+<script
+  async
+  src="https://getjasin.com/embed.js"
+  data-id="2d19689e-d85c-4837-b747-84f5e18c34c8"
+  data-theme="light"
+  data-show-badge="true"
+></script>
 ```
 
 ### View Tracking
+
 Views are tracked when:
+
 - The embed card becomes visible in the viewport
 - Uses Intersection Observer API for accuracy
 - Beacon API for reliable tracking (with fetch fallback)
 
 ### Click Tracking
+
 Clicks are tracked through:
+
 - Redirect URLs that log the click before sending to Amazon
 - Preserves affiliate tags and tracking parameters
 - Works with all Amazon product links
+
+---
 
 ## Dashboard Analytics
 
 View all your analytics data in your Jasin dashboard:
 
 ### Analytics Overview
+
 - **Total Views**: Across all your embeds
 - **Total Clicks**: Users who clicked through to Amazon
 - **Click-Through Rate**: Percentage of views that resulted in clicks
 - **Top Performers**: Your best-performing product embeds
 
 ### Individual Embed Stats
+
 Each embed shows:
+
 - Views and clicks over time
 - Performance compared to your other embeds
 - Referrer information (where views came from)
 - Geographic data (Pro plan)
 
+---
+
 ## Data Retention
 
 ### Retention Policies
+
 - **Free Tier**: 30 days of detailed analytics
 - **Pro Tier**: 90 days of detailed analytics
 - **Aggregated Data**: Permanent retention of monthly summaries
 
 ### Automated Cleanup
+
 - Daily cleanup jobs remove old detailed records
 - Materialized views maintain performance
 - Export capabilities before data expires
 
-## Analytics Health Monitoring
-
-Pro users get access to analytics health monitoring:
-
-### Data Integrity Checks
-- **Counter Accuracy**: Compares cached counters with actual event records
-- **Missing Data**: Identifies gaps in tracking data
-- **Duplicate Events**: Detects and flags duplicate tracking events
-
-### Health Dashboard
-- **Discrepancy Reports**: Shows differences between counters and records
-- **Data Quality Score**: Overall health percentage
-- **Automatic Fixes**: One-click repair for common issues
-
-## Performance Optimization
-
-### Materialized Views
-- **Hourly Refresh**: Analytics views update every hour
-- **Optimized Queries**: Fast dashboard loading
-- **Concurrent Access**: Multiple users can view analytics simultaneously
-
-### Caching Strategy
-- **Redis Cache**: Frequently accessed data cached for 5 minutes
-- **CDN Integration**: Static analytics assets served from CDN
-- **Background Jobs**: Heavy calculations run asynchronously
+---
 
 ## Privacy & Compliance
 
 ### Data Collection
+
 - **No Personal Data**: We don't collect personally identifiable information
 - **IP Anonymization**: IP addresses are hashed for privacy
 - **GDPR Compliant**: Respects user privacy preferences
 
-### User Control
-- **Opt-out Support**: Respects Do Not Track headers
-- **Data Export**: Users can export their analytics data
-- **Data Deletion**: Complete data removal on account deletion
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title="Missing Analytics">
-    - Verify the tracking script is included
-    - Check for JavaScript errors in browser console
-    - Ensure embed cards are visible in viewport
-  </Accordion>
-  
-  <Accordion title="Inaccurate Counts">
-    - Bot filtering may affect view counts
-    - Check analytics health dashboard for discrepancies
-    - Verify embed implementation matches documentation
-  </Accordion>
-  
-  <Accordion title="API Errors">
-    - Check API key authentication
-    - Verify date range parameters
-    - Review rate limiting status
-  </Accordion>
-</AccordionGroup> 
+---

@@ -1,208 +1,69 @@
 ---
-title: 'Themes'
-description: 'Customize the appearance of your product embeds with built-in themes'
+title: "Themes"
+description: "Choose between light and dark themes for your product embeds"
 ---
 
 ## Overview
 
-Jasin offers three built-in themes to ensure your product embeds look great on any website. Choose the theme that best matches your site's design.
+Jasin provides two clean, professional themes to ensure your product embeds look great on any
+website. Choose the theme that best matches your site's design.
+
+---
 
 ## Available Themes
 
 ### Light Theme
-Perfect for websites with light backgrounds and traditional designs.
 
-**Features:**
-- Clean white background
-- Dark text for excellent readability
-- Subtle shadows and borders
-- Professional appearance
+- Clean white background with dark text
+- Professional appearance for traditional websites
+- Best for blogs, business sites, and e-commerce stores
 - Works great with most website designs
 
-**Best for:**
-- Blogs and content sites
-- Business websites
-- E-commerce stores
-- Traditional web designs
-
 ### Dark Theme
-Modern dark design that complements dark-themed websites.
 
-**Features:**
 - Dark background with light text
-- High contrast for readability
-- Subtle highlights and accents
-- Modern, sleek appearance
+- Modern design for dark-themed websites
+- Ideal for tech blogs, portfolios, and gaming sites
 - Reduces eye strain in dark environments
 
-**Best for:**
-- Dark-themed websites
-- Tech blogs and portfolios
-- Gaming and entertainment sites
-- Modern web applications
-
-### Auto Theme
-Automatically adapts to your visitor's system preference for the best user experience.
-
-**Features:**
-- Detects user's dark/light mode setting
-- Switches themes automatically
-- Provides optimal viewing experience
-- Respects user preferences
-- Future-proof design choice
-
-**Best for:**
-- Websites that want to provide the best user experience
-- Sites with diverse audiences
-- Modern web applications
-- Progressive web apps
-
-## How to Choose a Theme
-
-When creating an embed in your dashboard:
-
-1. **Preview all themes** - See how each theme looks with your product
-2. **Consider your website** - Choose the theme that best matches your site's design
-3. **Think about your audience** - Auto theme provides the best user experience
-4. **Test on your site** - Make sure the theme looks good in context
-
-## Setting the Theme
-
-### In the Dashboard
-When creating an embed:
-1. Paste your Amazon URL
-2. Preview the product card
-3. Select your preferred theme from the dropdown
-4. Click "Create Embed"
-5. Copy the generated script tag
-
-### In the Script Tag
-The theme is set in the `data-theme` attribute:
-
-```html
-<!-- Light theme -->
-<script 
-  async 
-  src="https://getjasin.com/embed.js" 
-  data-id="your-embed-id"
-  data-theme="light">
-</script>
-
-<!-- Dark theme -->
-<script 
-  async 
-  src="https://getjasin.com/embed.js" 
-  data-id="your-embed-id"
-  data-theme="dark">
-</script>
-
-<!-- Auto theme -->
-<script 
-  async 
-  src="https://getjasin.com/embed.js" 
-  data-id="your-embed-id"
-  data-theme="auto">
-</script>
-```
-
-## Theme Examples
-
-### Light Theme Example
-```html
-<div style="background: #ffffff; padding: 20px;">
-  <h2>Product Recommendation</h2>
-  <p>I've been using this product for months:</p>
-  
-  <script 
-    async 
-    src="https://getjasin.com/embed.js" 
-    data-id="example-light"
-    data-theme="light">
-  </script>
-  
-  <p>It's been a game-changer for my workflow!</p>
-</div>
-```
-
-### Dark Theme Example
-```html
-<div style="background: #1a1a1a; color: #ffffff; padding: 20px;">
-  <h2>Product Recommendation</h2>
-  <p>Check out this amazing gadget:</p>
-  
-  <script 
-    async 
-    src="https://getjasin.com/embed.js" 
-    data-id="example-dark"
-    data-theme="dark">
-  </script>
-  
-  <p>Perfect for tech enthusiasts!</p>
-</div>
-```
-
-## Responsive Design
-
-All themes are fully responsive and work perfectly on:
-- **Desktop computers** - Full-featured display
-- **Tablets** - Optimized layout for medium screens
-- **Mobile phones** - Compact, touch-friendly design
-- **All screen sizes** - Adapts to any viewport
-
-## Accessibility
-
-Our themes are designed with accessibility in mind:
-- **High contrast** - Excellent readability for all users
-- **Screen reader friendly** - Proper semantic markup
-- **Keyboard navigation** - Full keyboard accessibility
-- **Color blind friendly** - Doesn't rely solely on color for information
+---
 
 ## Best Practices
 
 <CardGroup cols={2}>
   <Card title="Match Your Site" icon="palette">
-    Choose a theme that complements your website's existing design and color scheme
+    Choose the theme that best complements your website's design
   </Card>
-  <Card title="Consider Your Audience" icon="users">
-    Auto theme provides the best experience by respecting user preferences
-  </Card>
-  <Card title="Test Thoroughly" icon="flask">
-    Preview your embeds on different devices and in different lighting conditions
+  <Card title="Test Both Options" icon="flask">
+    Preview both themes to see which looks better with your content
   </Card>
   <Card title="Stay Consistent" icon="check">
-    Use the same theme across all embeds on your site for a cohesive look
+    Use the same theme across all embeds for a cohesive look
+  </Card>
+  <Card title="Consider Your Audience" icon="users">
+    Dark themes work well for tech content, light themes for general audiences
   </Card>
 </CardGroup>
+
+## Technical Details
+
+- **Fully responsive** - Works on desktop, tablet, and mobile
+- **Fast loading** - Optimized CSS with minimal overhead
+- **Accessibility compliant** - High contrast and screen reader friendly
+- **Cross-browser compatible** - Works in all modern browsers
 
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="Theme not displaying correctly">
-    - Verify the data-theme attribute is set correctly
-    - Check for CSS conflicts with your website's styles
+    - Verify the `data-theme` attribute is set to "light" or "dark" 
+    - Check for CSS conflicts with your website's styles 
     - Ensure the script tag is properly formatted
   </Accordion>
-  
-  <Accordion title="Auto theme not working">
-    - Confirm your website supports dark mode detection
-    - Check that the user's browser supports prefers-color-scheme
-    - Try manually setting light or dark theme as a fallback
-  </Accordion>
-  
+
   <Accordion title="Theme doesn't match my site">
-    - Consider using CSS to customize the embed container
-    - Try a different theme option
-    - Contact support for custom styling options (Pro plan)
+    - Try the other theme option to see if it fits better 
+    - Use CSS to customize the embed container if needed 
+    - Consider upgrading to Pro for more customization options
   </Accordion>
 </AccordionGroup>
-
-## Future Themes
-
-We're constantly working on new theme options. Pro users will get access to:
-- **Custom color schemes** - Match your brand colors exactly
-- **Advanced styling options** - More control over appearance
-- **Seasonal themes** - Special themes for holidays and events
-
-<Card title="Upgrade to Pro" icon="crown" href="https://getjasin.com/pricing">
-  Get access to advanced theming options and custom styling
-</Card> 

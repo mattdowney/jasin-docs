@@ -1,0 +1,31 @@
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "files.associations": {
+      "*.mdx": "mdx",
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[mdx]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+    },
+    "tailwindCSS.includeLanguages": {
+      "mdx": "html",
+    },
+    "emmet.includeLanguages": {
+      "mdx": "jsx",
+    },
+  },
+  "extensions": {
+    "recommendations": [
+      "unifiedjs.vscode-mdx",
+      "silvenon.mdx",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+    ],
+  },
+}

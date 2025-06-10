@@ -1,0 +1,7 @@
+node_modules/
+.git/
+.mintlify/
+package-lock.json
+yarn.lock
+*.log
+.DS_Store 

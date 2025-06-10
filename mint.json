@@ -1,51 +1,43 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Jasin Documentation",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.svg",
+
+  "css": ["styles.css"],
+
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#8b5cf6",
+    "light": "#a78bfa",
+    "dark": "#7c3aed",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#8b5cf6",
+      "to": "#06b6d4"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:support@getjasin.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://getjasin.com"
+
+  "favicon": "/images/jasin-dark.svg",
+
+  "footerSocials": {
+    "x": "https://x.com/getjasin"
   },
+
+  "logo": {
+    "dark": "/images/jasin-light.svg",
+    "light": "/images/jasin-dark.svg"
+  },
+
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "essentials/authentication"
-      ]
+      "pages": ["introduction", "quickstart", "essentials/authentication"]
     },
     {
       "group": "Features",
-      "pages": [
-        "features/embed-cards",
-        "features/analytics",
-        "features/themes"
-      ]
+      "pages": ["features/embed-cards", "features/analytics", "features/themes"]
     }
   ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/jasinapp",
-    "github": "https://github.com/jasin-app",
-    "linkedin": "https://www.linkedin.com/company/jasin-app"
+
+  "topbarCtaButton": {
+    "name": "Jasin App",
+    "url": "https://getjasin.com"
   }
-} 
+}

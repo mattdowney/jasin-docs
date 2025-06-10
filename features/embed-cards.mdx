@@ -1,101 +1,110 @@
 ---
-title: 'Embed Cards'
-description: 'Create beautiful, embeddable Amazon product cards for your website'
+title: "Embed Cards"
+description: "Create beautiful, embeddable Amazon product cards for your website"
 ---
 
 ## Overview
 
-Jasin transforms Amazon product URLs into clean, beautiful product cards that you can embed on any website. Simply paste an Amazon link, customize the appearance, and get a script tag to embed anywhere.
+Jasin transforms Amazon product URLs into clean, beautiful product cards that you can embed on any
+website. Simply paste an Amazon link, customize the appearance, and get a script tag to embed
+anywhere.
+
+---
 
 ## Creating Embed Cards
 
-### Using the Dashboard
+### From the Dashboard or My Products Page
 
 1. **Sign in** to your Jasin dashboard at [getjasin.com](https://getjasin.com)
-2. **Paste Amazon URL** - Copy any Amazon product URL into the input field
-3. **Preview your card** - See exactly how it will look on your website
-4. **Choose theme** - Select light, dark, or auto theme
-5. **Create embed** - Click "Create Embed" to generate your script tag
-6. **Copy and paste** - Use the script tag anywhere you want the product card to appear
+2. **Click the "Add Product" button** - This opens a modal to add a new product
+3. **Paste Amazon URL** - Copy any Amazon product URL into the input field
+4. **Preview your card** - See exactly how it will look on your website
+5. **Choose theme** - Select light or dark theme
+6. **Save** - Click the "Save" button to save the product
+7. **Copy the embed code** - Use the script tag anywhere you want the product card to appear
 
-### What You Get
+### What You Get When Creating an Embed Card
 
 Each embed generates a simple script tag like this:
 
 ```html
-<script 
-  async 
-  src="https://getjasin.com/embed.js" 
-  data-id="your-embed-id"
-  data-theme="light">
-</script>
+<script
+  async
+  src="https://getjasin.com/embed.js"
+  data-id="2d19689e-d85c-4837-b747-84f5e18c34c8"
+  data-theme="light"
+  data-show-badge="true"
+></script>
 ```
+
+---
 
 ## Embed Features
 
 ### Product Information
+
 Your embedded cards automatically include:
+
 - **High-quality product images** from Amazon
 - **Product title** and key details
 - **Current price** and availability
-- **Star ratings** and review counts
 - **Prime badge** when applicable
-- **"View on Amazon" button** with tracking
+- **"View on Amazon" button** with affiliate tracking
 
 ### Responsive Design
+
 - **Mobile-first** - Looks great on all devices
 - **Flexible sizing** - Adapts to your website's layout
 - **Fast loading** - Optimized for performance
-- **SEO-friendly** - Includes structured data
+- **SEO-friendly** - Includes HTML/CSS structured data
+
+---
 
 ## Theme Options
 
 <Tabs>
   <Tab title="Light Theme">
     Clean, minimal design with light backgrounds perfect for most websites.
-    
     - White background
     - Dark text for readability
     - Subtle shadows and borders
     - Works great on light-colored sites
   </Tab>
-  
+
   <Tab title="Dark Theme">
     Modern dark design that works great on dark websites.
-    
     - Dark background
     - Light text for contrast
     - Subtle highlights
     - Perfect for dark-themed sites
   </Tab>
-  
-  <Tab title="Auto Theme">
-    Automatically adapts to your visitor's system preference.
-    
-    - Detects user's dark/light mode setting
-    - Switches themes automatically
-    - Best user experience
-    - Works with any website design
-  </Tab>
 </Tabs>
+
+---
 
 ## Customization Options
 
 ### Free Plan Features
-- **Three themes** - Light, dark, and auto
+
+- **Two themes** - Light and dark
 - **Standard sizing** - Optimized dimensions
 - **Basic analytics** - View and click tracking
 - **Amazon affiliate support** - Uses default Jasin affiliate tag
 
 ### Pro Plan Features
+
+Everything in the free plan, plus\***\*:\*\***
+
 - **Custom affiliate tags** - Use your own Amazon affiliate ID to earn commissions
 - **Advanced analytics** - Detailed insights with bot filtering
 - **Priority support** - Get help when you need it
 
+---
+
 ## Best Practices
 
 <CardGroup cols={2}>
-  <Card title="Placement" icon="location-dot">
+  <Card title="Placement" icon="map-pin">
     Place embed cards within relevant content for better engagement and higher click-through rates
   </Card>
   <Card title="Context" icon="align-left">
@@ -109,98 +118,81 @@ Your embedded cards automatically include:
   </Card>
 </CardGroup>
 
+---
+
 ## Common Use Cases
 
 ### Blog Posts
+
 Perfect for product recommendations within your blog content:
 
 ```html
 <p>I've been using this coffee maker for months and absolutely love it:</p>
 
-<script 
-  async 
-  src="https://getjasin.com/embed.js" 
-  data-id="coffee-maker-embed"
-  data-theme="light">
-</script>
+<script
+  async
+  src="https://getjasin.com/embed.js"
+  data-id="2d19689e-d85c-4837-b747-84f5e18c34c8"
+  data-theme="light"
+  data-show-badge="true"
+></script>
 
 <p>The programmable features make my mornings so much easier!</p>
 ```
 
 ### Product Reviews
+
 Great for detailed product review articles:
 
 ```html
 <h2>Our Top Pick: Best Wireless Headphones</h2>
 
-<script 
-  async 
-  src="https://getjasin.com/embed.js" 
-  data-id="headphones-embed"
-  data-theme="auto">
-</script>
+<script
+  async
+  src="https://getjasin.com/embed.js"
+  data-id="2d19689e-d85c-4837-b747-84f5e18c34c8"
+  data-theme="light"
+  data-show-badge="true"
+></script>
 
 <p>After testing 15 different models, these headphones stood out...</p>
 ```
 
-### Comparison Posts
-Use multiple embeds to compare products:
-
-```html
-<h3>Budget Option</h3>
-<script async src="https://getjasin.com/embed.js" data-id="budget-option"></script>
-
-<h3>Premium Choice</h3>
-<script async src="https://getjasin.com/embed.js" data-id="premium-option"></script>
-```
+---
 
 ## Technical Details
 
 ### How It Works
+
 1. **Script loads** - The embed.js script loads asynchronously
 2. **Card renders** - Product data is fetched and the card is displayed
 3. **Tracking starts** - View tracking begins when the card is visible
 4. **Click tracking** - Clicks are tracked when users click through to Amazon
 
 ### Performance
+
 - **Lazy loading** - Cards only load when they're about to be visible
 - **Cached data** - Product information is cached for fast loading
 - **Minimal footprint** - Small script size for fast page loads
 - **No dependencies** - Works without jQuery or other libraries
 
 ### Compatibility
+
 - **All modern browsers** - Works in Chrome, Firefox, Safari, Edge
 - **Mobile responsive** - Optimized for phones and tablets
 - **CMS friendly** - Works with WordPress, Squarespace, Ghost, and more
 - **Email compatible** - Can be used in HTML emails (with limitations)
 
+---
+
 ## Analytics & Tracking
 
 Every embed automatically tracks:
+
 - **Views** - When the product card is displayed
 - **Clicks** - When users click through to Amazon
 - **Performance** - Click-through rates and engagement
 
 View detailed analytics in your dashboard to see which products perform best.
 
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title="Embed not showing">
-    - Check that the script tag is properly formatted
-    - Ensure your embed ID is correct
-    - Verify the script isn't being blocked by ad blockers
-  </Accordion>
-  
-  <Accordion title="Wrong theme displaying">
-    - Check the data-theme attribute in your script tag
-    - For auto theme, ensure your site supports dark mode detection
-    - Try refreshing the page to see theme changes
-  </Accordion>
-  
-  <Accordion title="Analytics not tracking">
-    - Ensure the script tag is exactly as provided
-    - Check that JavaScript is enabled
-    - Analytics may take a few minutes to appear in your dashboard
-  </Accordion>
-</AccordionGroup> 
+---

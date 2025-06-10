@@ -1,0 +1,42 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.semanticHighlighting.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "[mdx]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "on"
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.wordWrap": "on"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
+  },
+  "tailwindCSS.includeLanguages": {
+    "mdx": "html"
+  },
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
+  "tailwindCSS.experimental.classRegex": [
+    ["className\\s*=\\s*[\"']([^\"']*)[\"']", "([^\\s\"']+)"]
+  ],
+  "emmet.includeLanguages": {
+    "mdx": "jsx"
+  },
+  "files.associations": {
+    "*.mdx": "mdx"
+  },
+  "mdx.experimentalLanguageServer": true,
+  "mdx.validate": true,
+  "workbench.editorAssociations": {
+    "*.mdx": "default"
+  }
+}
