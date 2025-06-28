@@ -50,16 +50,16 @@ jasin-docs/
    cd jasin-docs
    ```
 
-2. **Install Mintlify CLI**
+2. **Install Mint CLI**
 
    ```bash
-   npm install -g mintlify
+   npm install -g mint@latest
    ```
 
 3. **Start development server**
 
    ```bash
-   mintlify dev
+   mint dev
    ```
 
 4. **Open in browser**
@@ -74,7 +74,7 @@ jasin-docs/
    npm run dev
    ```
 
-   This runs Mintlify dev server with built-in Tailwind CSS support.
+   This runs Mint dev server with built-in Tailwind CSS support.
 
 2. **Edit documentation** - Modify `.mdx` files, `mint.json`, or `styles.css`
 3. **Auto-reload** - Changes appear instantly at `localhost:3000`
@@ -85,7 +85,7 @@ jasin-docs/
 
 ```bash
 # Development
-npm run dev              # Runs Mintlify dev server
+npm run dev              # Runs Mint dev server
 
 # Production build
 npm run build           # Build documentation for production
@@ -330,7 +330,7 @@ Key sections:
    git checkout -b update-documentation
    ```
 3. **Make your changes**
-4. **Test locally** with `mintlify dev`
+4. **Test locally** with `mint dev`
 5. **Submit a pull request**
 
 ### Content Guidelines
@@ -344,13 +344,13 @@ Key sections:
 
 ```bash
 # Start local development
-mintlify dev
+mint dev
 
 # Check for broken links
-mintlify broken-links
+mint broken-links
 
-# Update Mintlify CLI
-npm install -g mintlify@latest
+# Update Mint CLI
+npm install -g mint@latest
 
 # Check git status
 git status

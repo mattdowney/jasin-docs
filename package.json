@@ -4,8 +4,8 @@
   "description": "Official documentation for [Jasin](https://getjasin.com) - Transform Amazon product URLs into beautiful, embeddable product cards.",
   "main": "index.js",
   "scripts": {
-    "dev": "mintlify dev",
-    "build": "mintlify build",
+    "dev": "mint dev",
+    "build": "mint build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "format:mdx": "prettier --write \"**/*.mdx\"",
