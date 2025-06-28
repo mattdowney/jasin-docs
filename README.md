@@ -87,8 +87,13 @@ jasin-docs/
 # Development
 npm run dev              # Runs Mint dev server
 
-# Production build
-npm run build           # Build documentation for production
+# Check for broken links
+mint broken-links
+
+# Format code
+npm run format           # Format all files
+npm run format:mdx       # Format MDX files only
+npm run format:check     # Check formatting
 ```
 
 ## Deployment
@@ -96,7 +101,7 @@ npm run build           # Build documentation for production
 ### Automatic Deployment
 
 Documentation automatically deploys to [docs.getjasin.com](https://docs.getjasin.com) when changes
-are pushed to the `main` branch via GitHub Actions.
+are pushed to the `master` branch via GitHub Actions.
 
 ### Manual Deployment
 
@@ -117,7 +122,7 @@ All documentation files use MDX format (`.mdx`), which supports:
 
 Common components used in this documentation:
 
-````mdx
+```mdx
 # Cards
 
 <Card title="Title" icon="icon-name" href="/link">
@@ -139,14 +144,13 @@ Common components used in this documentation:
 
 <CodeGroup>
 
-```html HTML
-<script src="https://getjasin.com/embed.js"></script>
-```
-````
+\`\`\`html HTML
 
-```javascript JavaScript
-console.log("Hello world");
-```
+<script src="https://getjasin.com/embed.js"></script>
+
+\`\`\`
+
+\`\`\`javascript JavaScript console.log("Hello world"); \`\`\`
 
 </CodeGroup>
 
@@ -160,36 +164,38 @@ console.log("Hello world");
 # Accordions
 
 <AccordionGroup>
-  <Accordion title="Question">
-    Answer content here
-  </Accordion>
+  <Accordion title="Question">Answer content here</Accordion>
 </AccordionGroup>
 
 # Info/Warning boxes
 
-<Info>Helpful information</Info> <Warning>Important warning</Warning>
-
-````
+<Info>Helpful information</Info>
+<Warning>Important warning</Warning>
+```
 
 ### Tailwind CSS Integration
 
-This documentation uses Tailwind CSS for custom styling via Mintlify's built-in support. You can use both Tailwind utility classes and custom Jasin components:
+This documentation uses Tailwind CSS for custom styling via Mintlify's built-in support. You can use
+both Tailwind utility classes and custom Jasin components:
 
 ```mdx
 # Custom Jasin Components
+
 <div className="jasin-card">
-  <h3 className="text-lg font-semibold mb-2">Card Title</h3>
+  <h3 className="mb-2 text-lg font-semibold">Card Title</h3>
   <p className="text-gray-600">Card content</p>
   <button className="jasin-button">Action Button</button>
 </div>
 
 # Tailwind Utility Classes
-<div className="flex items-center space-x-4 p-6 bg-blue-50 rounded-lg">
+
+<div className="flex items-center space-x-4 rounded-lg bg-blue-50 p-6">
   <span className="jasin-badge">Status</span>
   <span className="text-sm text-gray-500">Additional info</span>
 </div>
 
 # Alert Components
+
 <div className="jasin-alert jasin-alert-info">
   <strong>Info:</strong> This is an informational message.
 </div>
@@ -203,12 +209,13 @@ This documentation uses Tailwind CSS for custom styling via Mintlify's built-in 
 </div>
 
 # Responsive Grid
+
 <div className="jasin-grid">
   <div className="jasin-card">Item 1</div>
   <div className="jasin-card">Item 2</div>
   <div className="jasin-card">Item 3</div>
 </div>
-````
+```
 
 #### Available Custom Classes
 
