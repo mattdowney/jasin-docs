@@ -4,343 +4,46 @@
 
 /* Define CSS custom properties for fonts */
 :root {
-  --font-geist:
-    "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  --font-geist-mono:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace;
+  --font-geist: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-geist-mono: "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
 }
 
-/* Apply Geist to all text elements */
-* {
-  font-family:
-    "Geist",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif !important;
-}
-
-/* Ensure body and html use Geist */
+/* Apply Geist to body and main text elements */
 html,
 body {
-  font-family:
-    "Geist",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif !important;
+  font-family: var(--font-geist) !important;
 }
 
-/* Apply Geist to all headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family:
-    "Geist",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif !important;
+/* Apply Geist to headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-geist) !important;
   font-weight: 500 !important;
 }
 
-/* Apply Geist to all text elements */
-p,
-span,
-div,
-a,
-li,
-td,
-th,
-label,
-input,
-textarea,
-button {
-  font-family:
-    "Geist",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif !important;
+/* Apply Geist to text elements */
+p, span, div, a, li, td, th, label, input, textarea, button {
+  font-family: var(--font-geist) !important;
 }
 
-/* Apply Geist Mono to all code-related elements */
+/* Apply Geist Mono to ALL code elements with aggressive targeting */
 code,
 pre,
-.code,
-.hljs,
-[class*="language-"],
-[class*="lang-"],
-.token,
 kbd,
 samp,
 tt,
 var,
-.highlight,
-.codehilite,
-.sourceCode,
-.chroma,
-.syntax,
-.highlight-source,
-[data-language],
-.prism-code,
-.code-block,
-.terminal,
-.command-line,
-.shell,
-.bash,
-.zsh,
-.fish,
-.powershell,
-.cmd,
-[data-lang="bash"],
-[data-lang="shell"],
-[data-lang="zsh"],
-[data-lang="fish"],
-[data-lang="powershell"],
-[data-lang="cmd"],
-[data-lang="terminal"],
-[data-lang="console"],
-[data-lang="javascript"],
-[data-lang="typescript"],
-[data-lang="python"],
-[data-lang="java"],
-[data-lang="c"],
-[data-lang="cpp"],
-[data-lang="html"],
-[data-lang="css"],
-[data-lang="json"],
-[data-lang="yaml"],
-[data-lang="xml"],
-[data-lang="sql"],
-[data-lang="php"],
-[data-lang="ruby"],
-[data-lang="go"],
-[data-lang="rust"],
-[data-lang="swift"],
-[data-lang="kotlin"],
-[data-lang="dart"],
-[data-lang="r"],
-[data-lang="matlab"],
-[data-lang="perl"],
-[data-lang="scala"],
-[data-lang="clojure"],
-[data-lang="haskell"],
-[data-lang="lua"],
-[data-lang="vim"],
-[data-lang="dockerfile"],
-[data-lang="makefile"],
-[data-lang="nginx"],
-[data-lang="apache"],
-.mintlify-code,
-.mintlify-terminal {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
-
-/* Ensure code blocks use Geist Mono */
-pre code,
-pre > code,
-code[class*="language-"],
-code[class*="lang-"] {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
+.token,
+[class*="language-"] *,
+pre *,
+code * {
+  font-family: var(--font-geist-mono) !important;
 }
 
 /* Inline code styling */
-:not(pre) > code,
-p code,
-li code,
-td code,
-th code,
-h1 code,
-h2 code,
-h3 code,
-h4 code,
-h5 code,
-h6 code {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
+:not(pre) > code {
+  font-family: var(--font-geist-mono) !important;
 }
 
-/* Additional comprehensive syntax highlighting and code selectors */
-.shiki,
-.shiki code,
-.shiki pre,
-.prism,
-.prism code,
-.prism pre,
-.highlight-js,
-.highlight-js code,
-.highlight-js pre,
-[class*="shiki"],
-[class*="prism"],
-[class*="hljs"],
-.code-toolbar,
-.code-toolbar code,
-.code-toolbar pre,
-.language-text,
-.language-plain,
-.language-none,
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata,
-.token.punctuation,
-.token.namespace,
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted,
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted,
-.token.operator,
-.token.entity,
-.token.url,
-.token.variable,
-.token.atrule,
-.token.attr-value,
-.token.function,
-.token.class-name,
-.token.keyword,
-.token.regex,
-.token.important {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
-
-/* Force monospace for any element with monospace in computed styles */
-[style*="font-family"][style*="monospace"],
-[style*="font-family"][style*="mono"],
-[style*="font-family"][style*="courier"],
-[style*="font-family"][style*="console"] {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
-
-/* Mintlify specific overrides */
-.mintlify-editor,
-.mintlify-editor code,
-.mintlify-editor pre,
-.mintlify-code-block,
-.mintlify-code-block code,
-.mintlify-code-block pre {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
-
-/* Ultra-aggressive font overrides with maximum specificity */
-html body * code,
-html body * pre,
-html body * .token,
-html body * [class*="token"],
-html body * [class*="language-"],
-html body * [class*="lang-"],
-html body div code,
-html body div pre,
-html body div .token,
-html body span code,
-html body span pre,
-html body span .token,
-html body pre *,
-html body code *,
-html body .highlight *,
-html body .hljs *,
-html body .prism *,
-html body .shiki * {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
-
-/* Force override any inline styles */
-*[style*="font-family"] code,
-*[style*="font-family"] pre,
-*[style*="font-family"] .token {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
-
-/* Nuclear option - override everything with code-related content */
-* {
-  --font-mono:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
-
-/* Apply to any element that might contain code */
-[class*="code"],
-[class*="Code"],
-[class*="highlight"],
-[class*="Highlight"],
-[class*="syntax"],
-[class*="Syntax"],
-[class*="prism"],
-[class*="Prism"],
-[class*="hljs"],
-[class*="token"],
-[class*="Token"] {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
-
-/* Target Mintlify's specific structure */
-div[class*="language-"] *,
-pre[class*="language-"] *,
-code[class*="language-"] * {
-  font-family:
-    "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    "Courier New", monospace !important;
-}
 
 /* Logo size customization */
 .nav-logo {

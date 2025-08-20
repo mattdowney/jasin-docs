@@ -4,6 +4,10 @@
 
   "css": ["styles.css"],
 
+  "codeBlock": {
+    "mode": "auto"
+  },
+
   "colors": {
     "primary": "#8b5cf6",
     "light": "#a78bfa",
@@ -28,7 +32,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "essentials/authentication"]
+      "pages": ["introduction", "quickstart", "essentials/pricing", "essentials/authentication"]
     },
     {
       "group": "Features",
